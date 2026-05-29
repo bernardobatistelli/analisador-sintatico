@@ -1,0 +1,25 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --cor-primaria: #16a34a;
+    --cor-primaria-escura: #14532d;
+    --cor-primaria-clara: #22c55e;
+    --cor-acento: #86efac;
+    --cor-fundo: #f0fdf4;
+    --cor-fundo-card: #ffffff;
+    --cor-borda: #bbf7d0;
+    --cor-texto: #1a2e1a;
+    --cor-texto-leve: #6b7280;
+    --cor-sucesso: #16a34a;
+    --cor-erro: #dc2626;
+    --cor-linha-par: #f0fdf4;
+    --sombra: 0 2px 16px rgba(22, 163, 74, 0.10);
+    --raio: 10px;
+    --raio-grande: 18px;
+    --fonte-titulo: 'Syne', sans-serif;
+    --fonte-mono: 'JetBrains Mono', monospace;
+}

@@ -1,0 +1,94 @@
+.tabela-parsing,
+.tabela-resolucao {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--fonte-mono);
+    font-size: 0.87rem;
+}
+
+.tabela-parsing th,
+.tabela-parsing td,
+.tabela-resolucao th,
+.tabela-resolucao td {
+    border: 1px solid var(--cor-borda);
+    padding: 8px 12px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.tabela-parsing th {
+    background: var(--cor-primaria);
+    color: #fff;
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    font-size: 0.92rem;
+}
+
+.tabela-parsing td:first-child {
+    background: var(--cor-primaria-escura);
+    color: #fff;
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+}
+
+.tabela-parsing tr:nth-child(even) td {
+    background: var(--cor-linha-par);
+}
+
+.tabela-parsing tr:nth-child(even) td:first-child {
+    background: var(--cor-primaria-escura);
+}
+
+.tabela-parsing td {
+    color: var(--cor-texto);
+    font-size: 0.84rem;
+}
+
+.tabela-resolucao th {
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    font-size: 0.92rem;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    border-bottom: 2px solid var(--cor-borda);
+}
+
+.tabela-resolucao td { color: var(--cor-texto); }
+
+.tabela-resolucao tr:nth-child(even) td { background: var(--cor-linha-par); }
+
+.tabela-resolucao tr.linha-aceito td {
+    background: #dcfce7;
+    color: var(--cor-sucesso);
+    font-weight: 700;
+}
+
+.tabela-resolucao tr.linha-erro td {
+    background: #fee2e2;
+    color: var(--cor-erro);
+    font-weight: 700;
+}
+
+.tabela-resolucao td:first-child {
+    font-weight: 700;
+    color: var(--cor-primaria);
+    min-width: 40px;
+}
+
+.tabela-parsing-wrapper {
+    overflow-x: auto;
+    border-radius: var(--raio);
+    border: 1.5px solid var(--cor-borda);
+}
+
+.titulo-tabela {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-primaria);
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 18px 0 12px 0;
+}

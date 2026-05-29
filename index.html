@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analisador Sintático</title>
+    <link rel="stylesheet" href="src/fonts/fonts.css" />
+    <link rel="stylesheet" href="src/css/main.css" />
+    <link rel="stylesheet" href="src/css/style.css" />
+    <link rel="stylesheet" href="src/css/tabela.css" />
+    <link rel="stylesheet" href="src/root/root.css" />
+</head>
+<body>
+
+<header>
+    <h1>Analisador Sintático</h1>
+    <p>por:</p>
+    <a href="#">Seu Nome Aqui</a>
+</header>
+
+<main class="conteudo">
+
+    <div class="layout-topo">
+
+        <div class="card">
+            <div class="card-titulo">Informações</div>
+            <div class="accordion-cabecalho" onclick="alternarAccordion()" style="margin-bottom:14px">
+                <span style="font-size:0.85rem; color:var(--cor-texto-leve)">Gramática · First · Follow · Tabela</span>
+                <span class="accordion-seta aberto" id="setaAccordion">▼</span>
+            </div>
+            <div class="accordion-corpo visivel" id="corpoAccordion">
+                <div class="grid-info">
+                    <div class="bloco-info">
+                        <h4>Gramática</h4>
+                        <span>S ::= bBb | aAc | dCc</span>
+                        <span>A ::= dbB | aA | ε</span>
+                        <span>B ::= aB | dCb | ε</span>
+                        <span>C ::= aB b | daA</span>
+                    </div>
+                    <div class="bloco-info">
+                        <h4>First</h4>
+                        <span>S = {a, b, d}</span>
+                        <span>A = {a, d, ε}</span>
+                        <span>B = {a, d, ε}</span>
+                        <span>C = {a, d}</span>
+                    </div>
+                    <div class="bloco-info">
+                        <h4>Follow</h4>
+                        <span>S = {$}</span>
+                        <span>A = {b, c}</span>
+                        <span>B = {b, c}</span>
+                        <span>C = {b, c}</span>
+                    </div>
+                </div>
+
+                <p class="titulo-tabela">Tabela de Parsing</p>
+                <div class="tabela-parsing-wrapper">
+                    <table class="tabela-parsing">
+                        <thead>
+                            <tr>
+                                <th>NT</th>
+                                <th>a</th>
+                                <th>b</th>
+                                <th>c</th>
+                                <th>d</th>
+                                <th>$</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>S</td>
+                                <td>S -&gt; aAc</td>
+                                <td>S -&gt; bBb</td>
+                                <td>—</td>
+                                <td>S -&gt; dCc</td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>A</td>
+                                <td>A -&gt; aA</td>
+                                <td>A -&gt; ε</td>
+                                <td>A -&gt; ε</td>
+                                <td>A -&gt; dbB</td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>B</td>
+                                <td>B -&gt; aB</td>
+                                <td>B -&gt; ε</td>
+                                <td>B -&gt; ε</td>
+                                <td>B -&gt; dCb</td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>C</td>
+                                <td>C -&gt; aBb</td>
+                                <td>—</td>
+                                <td>—</td>
+                                <td>C -&gt; daA</td>
+                                <td>—</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-titulo">Inserir Sentença</div>
+            <div class="secao-entrada">
+                <div style="display:flex;gap:10px;align-items:center">
+                    <input
+                        id="entradaSentenca"
+                        type="text"
+                        placeholder="Digite sua sentença: ex: adbc"
+                        autocomplete="off"
+                        oninput="atualizarStatusEntrada()"
+                        onkeydown="if(event.key==='Enter') iniciarAutomato()"
+                        style="flex:1"
+                    />
+                    <button class="btn-primario" onclick="iniciarAutomato()" style="white-space:nowrap">Analisar</button>
+                </div>
+                <div id="statusEntrada" style="margin-top:8px; font-size:0.82rem; display:none; align-items:center; gap:6px; padding:7px 12px; border-radius:8px; background:#fef9c3; border:1.5px solid #fde047; color:#854d0e; font-family:var(--fonte-mono)">
+                    <span>⚡</span>
+                    <span>Sentença pronta — clique em <strong>Analisar</strong> para resolver</span>
+                </div>
+                <div class="grupo-botoes" style="margin-top:10px">
+                    <button class="btn-primario" onclick="gerarSentencaAleatoria()">Gerar Aleatória</button>
+                    <button class="btn-primario" style="background:var(--cor-primaria-escura)" onclick="abrirConstrutor()">Criar Sentença</button>
+                    <button class="btn-primario" style="background:#6b7280" onclick="reiniciar()">Reiniciar</button>
+                </div>
+                <div style="margin-top:10px; font-size:0.8rem; color:var(--cor-texto-leve); line-height:1.8">
+                    <strong>Terminais:</strong> a, b, c, d<br>
+                    <strong>Exemplos válidos:</strong> aac &nbsp;|&nbsp; adbc &nbsp;|&nbsp; aaac &nbsp;|&nbsp; bab
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card">
+        <div class="area-passos">
+            <div class="coluna-passos">
+                <h4>Passos</h4>
+                <button id="btnProximo" class="btn-primario btn-proximo" onclick="proximoPasso()">
+                    Próximo Passo
+                </button>
+                <button id="btnResolver" class="btn-primario" onclick="resolverTudo()">
+                    Resolver
+                </button>
+            </div>
+            <div class="divisor"></div>
+            <div class="wrapper-tabela-resolucao">
+                <table class="tabela-resolucao">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Pilha</th>
+                            <th>Entrada</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaResolucao"></tbody>
+                </table>
+                <div id="ancoraFim"></div>
+            </div>
+        </div>
+        <div id="resultadoFinal" class="resultado-final"></div>
+    </div>
+
+</main>
+
+<footer>Analisador Sintático Top-Down Preditivo Tabular &mdash; Compiladores &mdash; URI Erechim</footer>
+
+<div class="modal-overlay" id="modalConstrutor">
+    <div class="modal-caixa">
+        <button class="modal-fechar" onclick="fecharConstrutor()">✕</button>
+        <div class="modal-titulo">Construtor de Sentenças</div>
+        <div class="modal-subtitulo">Expanda os não-terminais escolhendo as regras passo a passo</div>
+
+        <div class="construtor-label" style="margin-bottom:6px">Forma sentencial atual:</div>
+        <div class="construtor-pilha" id="construtorForma">S</div>
+
+        <div class="construtor-sucesso" id="construtorSucesso" style="display:none"></div>
+
+        <div class="construtor-label" id="construtorLabel">Escolha uma regra para expandir S:</div>
+        <div class="construtor-regras" id="construtorRegras"></div>
+
+        <div class="construtor-acoes">
+            <button class="btn-primario" id="btnUsarSentenca" style="display:none" onclick="usarSentencaConstruida()">
+                ✔ Usar esta Sentença
+            </button>
+            <button class="btn-primario" style="background:#6b7280" onclick="desfazerPasso()">
+                ↺ Recomeçar
+            </button>
+            <button class="btn-primario" style="background:var(--cor-erro)" onclick="fecharConstrutor()">
+                Fechar
+            </button>
+        </div>
+
+        <div class="construtor-historico" id="construtorHistoricoWrapper">
+            <div class="construtor-historico-titulo">Histórico de derivações</div>
+            <div id="construtorHistorico"></div>
+        </div>
+    </div>
+</div>
+
+<script src="src/js/main.js"></script>
+</body>
+</html>

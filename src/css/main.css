@@ -1,0 +1,22 @@
+#ancora-fim {
+    height: 1px;
+}
+
+.badge-entrada {
+    display: inline-block;
+    background: var(--cor-primaria-clara);
+    color: #fff;
+    border-radius: 6px;
+    padding: 2px 10px;
+    font-size: 0.82rem;
+    font-family: var(--fonte-mono);
+    margin-left: 8px;
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 600px) {
+    .card { padding: 16px 10px; }
+    .area-passos { flex-direction: column; }
+    .divisor { display: none; }
+    header h1 { font-size: 1.4rem; }
+}
