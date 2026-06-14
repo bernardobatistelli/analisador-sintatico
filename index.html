@@ -120,14 +120,14 @@
                     />
                     <button class="btn-primario" onclick="iniciarAutomato()" style="white-space:nowrap">Analisar</button>
                 </div>
-                <div id="statusEntrada" style="margin-top:8px; font-size:0.82rem; display:none; align-items:center; gap:6px; padding:7px 12px; border-radius:8px; background:#fef9c3; border:1.5px solid #fde047; color:#854d0e; font-family:var(--fonte-mono)">
+                <div id="statusEntrada" style="margin-top:8px; font-size:0.82rem; display:none; align-items:center; gap:6px; padding:7px 12px; border-radius:8px; background:rgba(251,191,36,0.08); border:1px solid rgba(251,191,36,0.3); color:#fbbf24; font-family:var(--fonte-mono)">
                     <span>⚡</span>
                     <span>Sentença pronta — clique em <strong>Analisar</strong> para resolver</span>
                 </div>
                 <div class="grupo-botoes" style="margin-top:10px">
                     <button class="btn-primario" onclick="gerarSentencaAleatoria()">Gerar Aleatória</button>
-                    <button class="btn-primario" style="background:var(--cor-primaria-escura)" onclick="abrirConstrutor()">Criar Sentença</button>
-                    <button class="btn-primario" style="background:#6b7280" onclick="reiniciar()">Reiniciar</button>
+                    <button class="btn-primario" style="background:#1e3a5f;border-color:#2d5a8a" onclick="abrirConstrutor()">Criar Sentença</button>
+                    <button class="btn-primario" style="background:#2d333b;border-color:#444c56" onclick="reiniciar()">Reiniciar</button>
                 </div>
                 <div style="margin-top:10px; font-size:0.8rem; color:var(--cor-texto-leve); line-height:1.8">
                     <strong>Terminais:</strong> a, b, c, d<br>
@@ -190,10 +190,10 @@
             <button class="btn-primario" id="btnUsarSentenca" style="display:none" onclick="usarSentencaConstruida()">
                 ✔ Usar esta Sentença
             </button>
-            <button class="btn-primario" style="background:#6b7280" onclick="desfazerPasso()">
+            <button class="btn-primario" style="background:#2d333b;border-color:#444c56" onclick="desfazerPasso()">
                 ↺ Recomeçar
             </button>
-            <button class="btn-primario" style="background:var(--cor-erro)" onclick="fecharConstrutor()">
+            <button class="btn-primario" style="background:rgba(248,81,73,0.15);border:1px solid rgba(248,81,73,0.4);color:var(--cor-erro)" onclick="fecharConstrutor()">
                 Fechar
             </button>
         </div>

@@ -3,7 +3,7 @@
     width: 100%;
     border-collapse: collapse;
     font-family: var(--fonte-mono);
-    font-size: 0.87rem;
+    font-size: 0.85rem;
 }
 
 .tabela-parsing th,
@@ -17,16 +17,18 @@
 }
 
 .tabela-parsing th {
-    background: var(--cor-primaria);
-    color: #fff;
+    background: var(--cor-primaria-escura);
+    color: var(--cor-primaria-clara);
     font-family: var(--fonte-titulo);
     font-weight: 700;
-    font-size: 0.92rem;
+    font-size: 0.88rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
 }
 
 .tabela-parsing td:first-child {
-    background: var(--cor-primaria-escura);
-    color: #fff;
+    background: #111820;
+    color: var(--cor-primaria);
     font-family: var(--fonte-titulo);
     font-weight: 700;
 }
@@ -36,20 +38,22 @@
 }
 
 .tabela-parsing tr:nth-child(even) td:first-child {
-    background: var(--cor-primaria-escura);
+    background: #111820;
 }
 
 .tabela-parsing td {
     color: var(--cor-texto);
-    font-size: 0.84rem;
+    font-size: 0.83rem;
 }
 
 .tabela-resolucao th {
-    background: var(--cor-fundo);
-    color: var(--cor-texto);
+    background: var(--cor-fundo-card);
+    color: var(--cor-texto-leve);
     font-family: var(--fonte-titulo);
     font-weight: 700;
-    font-size: 0.92rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     position: sticky;
     top: 0;
     z-index: 2;
@@ -61,13 +65,13 @@
 .tabela-resolucao tr:nth-child(even) td { background: var(--cor-linha-par); }
 
 .tabela-resolucao tr.linha-aceito td {
-    background: #dcfce7;
+    background: rgba(63, 185, 80, 0.1);
     color: var(--cor-sucesso);
     font-weight: 700;
 }
 
 .tabela-resolucao tr.linha-erro td {
-    background: #fee2e2;
+    background: rgba(248, 81, 73, 0.1);
     color: var(--cor-erro);
     font-weight: 700;
 }
@@ -81,14 +85,16 @@
 .tabela-parsing-wrapper {
     overflow-x: auto;
     border-radius: var(--raio);
-    border: 1.5px solid var(--cor-borda);
+    border: 1px solid var(--cor-borda);
 }
 
 .titulo-tabela {
     font-family: var(--fonte-titulo);
-    color: var(--cor-primaria);
-    font-size: 1.05rem;
+    color: var(--cor-texto-leve);
+    font-size: 0.82rem;
     font-weight: 700;
     text-align: center;
     margin: 18px 0 12px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
 }
