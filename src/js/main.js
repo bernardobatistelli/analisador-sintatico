@@ -251,7 +251,8 @@ function encerrarAnalise() {
         div.textContent = '✔ Sentença ACEITA pela gramática!';
         div.className = 'resultado-final resultado-aceito';
     } else {
-        div.textContent = '✘ Sentença REJEITADA pela gramática.';
+        const unidade = ultimo.numero === 1 ? 'interação' : 'interações';
+        div.textContent = '✘ Falhou em ' + ultimo.numero + ' ' + unidade + '. Sentença REJEITADA pela gramática.';
         div.className = 'resultado-final resultado-rejeitado';
     }
 }

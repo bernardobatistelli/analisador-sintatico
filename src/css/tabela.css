@@ -23,7 +23,7 @@
     font-weight: 700;
     font-size: 0.88rem;
     letter-spacing: 0.04em;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 
 .tabela-parsing td:first-child {
